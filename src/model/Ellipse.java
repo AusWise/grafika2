@@ -13,6 +13,6 @@ public class Ellipse implements Shape{
 
 	@Override
 	public String toString(){
-		return "Ellipse" + x + " " + y + " " + height + " " + width;
+		return "Ellipse " + x + " " + y + " " + height + " " + width;
 	}
 }

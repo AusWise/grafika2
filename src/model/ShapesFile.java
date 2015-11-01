@@ -37,21 +37,22 @@ public class ShapesFile extends Shapes {
 			line = fileScanner.nextLine();
 			lineScanner = new Scanner(line);
 			type = lineScanner.next();
-			if(type == "Rectangle"){
+			System.out.println(type);
+			if(type.equals("Rectangle")){
 				int x = lineScanner.nextInt();
 				int y = lineScanner.nextInt();
 				int height = lineScanner.nextInt();
 				int width= lineScanner.nextInt();
 				shape = new Rectangle(x,y,height,width);
 			}
-			else if (type == "Ellipse"){
+			else if (type.equals("Ellipse")){
 				int x = lineScanner.nextInt();
 				int y = lineScanner.nextInt();
 				int height = lineScanner.nextInt();
 				int width= lineScanner.nextInt();
 				shape = new Ellipse(x,y,height,width);
 			}
-			else if(type == "Polygon"){
+			else if(type.equals("Polygon")){
 				List<Point> points = new LinkedList<Point>();
 				int x,y;
 				while(lineScanner.hasNext()){
@@ -65,6 +66,9 @@ public class ShapesFile extends Shapes {
 			
 			this.add(shape);
 		}
+		
+		System.out.println(this.size());
+		
 	}
 	
 	public void save() throws FileNotFoundException{
@@ -73,10 +77,21 @@ public class ShapesFile extends Shapes {
 		PrintWriter writer = new PrintWriter(this.file);
 		for(Shape shape: this)
 			writer.println(shape);
+		
+		writer.flush();
+		writer.close();
 	}
 		
 	public void saveAs(File file) throws FileNotFoundException{
 		this.setFile(file);
 		this.save();
+	}
+	
+	public boolean isSaved(){
+		return saved;
+	}
+	
+	public boolean hasFile(){
+		return file!=null;
 	}
 }
