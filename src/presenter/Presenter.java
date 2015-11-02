@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 
 import view.View;
 import model.ShapesFile;
+import model.Shape;
 
 
 public class Presenter {
@@ -41,5 +42,23 @@ public class Presenter {
 	
 	public boolean hasFile(){
 		return model.hasFile();
+	}
+	
+	public int size(){
+		return model.size();
+	}
+	
+	public Shape get(int i){
+		return model.get(i);
+	}
+	
+	public void remove(int i){
+		model.remove(i);
+		this.updateView();
+	}
+	
+	public void add(Shape shape){
+		model.add(shape);
+		this.updateView();
 	}
 }

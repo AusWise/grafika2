@@ -61,7 +61,16 @@ public class ShapesFile extends Shapes {
 					points.add(new Point(x, y));
 				}
 				
-				shape = new Polygon(points);
+				int npoints = points.size();
+				int [] xpoints = new int[npoints];
+				int [] ypoints = new int[npoints];
+				
+				for(int i=0;i<npoints;i++){
+					xpoints[i] = points.get(i).x;
+					ypoints[i] = points.get(i).y;
+				}
+				
+				shape = new Polygon(xpoints, ypoints, npoints);
 			}
 			
 			this.add(shape);
@@ -93,5 +102,10 @@ public class ShapesFile extends Shapes {
 	
 	public boolean hasFile(){
 		return file!=null;
+	}
+	
+	public void remove(int i){
+		this.setSaved(false);
+		super.remove(i);
 	}
 }

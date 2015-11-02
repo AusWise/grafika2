@@ -1,5 +1,5 @@
 package model;
 
-interface  Shape{
-	
+public interface  Shape{
+	java.awt.Shape toSwingShape();
 }

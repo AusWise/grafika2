@@ -2,20 +2,31 @@ package model;
 import java.util.List;
 
 public class Polygon implements Shape{
-	private List<Point> points;
-		
-	public Polygon(List<Point> points) {
+	private int[] xpoints,ypoints;
+	private int npoints;
+	
+	public Polygon(int[] xpoints, int[] ypoints, int npoints) {
 		super();
-		this.points = points;
+		this.xpoints = xpoints;
+		this.ypoints = ypoints;
+		this.npoints = npoints;
 	}
 
 	@Override
-	public String toString(){
+	public java.awt.Shape toSwingShape() {
+		return new java.awt.Polygon(xpoints,ypoints,npoints);
+	}
+
+	@Override
+	public String toString() {
 		String result = "Polygon ";
 		
-		for(Point point: points)
-			result += point.x + " " + point.y + " ";
+		for(int i=0;i<npoints;i++)
+			result += xpoints[i] + " " + ypoints[i];
 		
 		return result;
 	}
+	
+	
+	
 }
