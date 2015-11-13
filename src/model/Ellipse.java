@@ -1,6 +1,6 @@
 package model;
 
-public class Ellipse implements Shape{
+public class Ellipse extends Shape{
 	private int x,y,height,width;
 	
 	public Ellipse(int x, int y, int width, int height) {
@@ -9,6 +9,7 @@ public class Ellipse implements Shape{
 		this.y = y;
 		this.height = height;
 		this.width = width;
+		super.name = "Ellipse";
 	}
 
 	@Override

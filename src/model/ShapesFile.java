@@ -81,7 +81,7 @@ public class ShapesFile extends Shapes {
 	}
 	
 	public void save() throws FileNotFoundException{
-		this.setSaved(saved);
+		this.setSaved(true);
 			
 		PrintWriter writer = new PrintWriter(this.file);
 		for(Shape shape: this)
@@ -105,7 +105,12 @@ public class ShapesFile extends Shapes {
 	}
 	
 	public void remove(int i){
-		this.setSaved(false);
 		super.remove(i);
+		this.setSaved(false);
+	}
+	
+	public void add(Shape shape){
+		super.add(shape);
+		this.setSaved(false);
 	}
 }

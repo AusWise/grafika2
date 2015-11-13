@@ -1,6 +1,6 @@
 package model;
 
-public class Rectangle implements Shape{
+public class Rectangle extends Shape{
 	private int x,y,height,width;
 	
 	public Rectangle(int x, int y, int width, int height) {
@@ -9,6 +9,7 @@ public class Rectangle implements Shape{
 		this.y = y;
 		this.height = height;
 		this.width = width;
+		super.name = "Rectangle";
 	}
 
 	@Override
